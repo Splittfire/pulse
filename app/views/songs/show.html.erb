@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h3><%= @song.title %> - <%= @song.artist %> (<%= @song.genre %>)</h3>
+  <div class="container">
+    <iframe src="//www.youtube.com/embed/<%= @song.youtube_id.gsub("https://www.youtube.com/watch?v=", "") %>" 
+    frameborder="0" allowfullscreen class="video"></iframe>
+  </div>
+</div>
+
+<%= link_to 'Back', songs_path %>

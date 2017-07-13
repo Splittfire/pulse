@@ -1,2 +1,15 @@
-<h1>Pulse</h1>
-<p>Share and listen to the best of music</p>
+<center>
+<div class="page header" style="max-width: 400px">
+    <h1>Pulse</h1>
+    <%= link_to 'New Song', new_song_path, class: "btw btw-primary btn-lg" %>
+</div>
+
+<div class="list-group" style="max-width: 400px">
+  <% @songs.each do |song| %>
+    <%= link_to "#{song.title} - #{song.artist}", song, class: "list-group-item" %>
+  <% end %>
+</div>
+
+    <%= link_to 'View All Songs', songs_path, class: "btw btw-primary btn-lg" %>
+
+</center>

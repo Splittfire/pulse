@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pulse</h1>
+
+<div class="list-group">
+  <% @songs.each do |song| %>
+    <%= link_to "#{song.title} - #{song.artist}", song, class: "list-group-item" %>
+  <% end %>
+</div>

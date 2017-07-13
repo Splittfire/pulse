@@ -1,0 +1,49 @@
+<%= form_with(model: song, local: true) do |form| %>
+  <% if song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" style="max-width: 400px">
+    <h5>Title:</h5>
+    <%= form.text_field :title, class: "form-controll input-lg" %>
+  </div>
+
+  <div class="form-group" style="max-width: 400px">
+    <h5>Artist:</h5>
+    <%= form.text_field :artist, class: "form-controll input-lg" %>
+  </div>
+
+  <div class="form-group" style="max-width: 400px">
+    <h5>Genre</h5>
+    <%= form.select :genre,  [
+                                 ["Alt.Rock", "Alt.Rock"],
+                                 ["Ambiance", "Ambiance"],
+                                 ["Electronic", "Electronic"],
+                                 ["Future house", "Future house"],
+                                 ["Future bass", "Future bass"],
+                                 ["Trap", "Trap"],
+                                 ["Electro house", "Electro house"],
+                                 ["Prog. house", "Prog. house"],
+                                 ["Dubstep", "Dubstep"],
+                                 ["Deep house", "Deep house"]
+                                 ].sort, prompt: "Select Genre...", id: :song_genre %>
+  </div>
+
+  
+  <div class="form-group" style="max-width: 400px">
+    <h5>Youtube ID (Full youtube link)</h5>
+    <%= form.text_field :youtube_id, class: "form-controll input-lg" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Post Song' %>
+  </div>
+<% end %>
